@@ -1,6 +1,6 @@
 var express = require('express');
-
-var home = require('../app/routes/home');
+var consign = require('consign');
+var bodyParser = require('body-parser');
 
 module.exports = () => {
     var app = express();
@@ -13,8 +13,13 @@ module.exports = () => {
 
     app.set('view engine', 'ejs');
     app.set('views', './app/views');
+    app.use(bodyParser.json());
+    app.use(require('method-override')());
 
-    home(app);
+    consign({cwd: 'app'})
+        .include('controllers')
+        .then('routes')
+        .into(app);
 
     return app;
 };
