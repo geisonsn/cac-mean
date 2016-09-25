@@ -10,6 +10,7 @@ module.exports = () => {
     controller.listaContatos = (request, response) => {
         response.json(contatos);
     };
+
     controller.obtemContato = (request, response) => {
         var idContato = request.params.id;
         var contato = contatos.filter((contato) => contato._id == idContato)[0];
@@ -19,5 +20,15 @@ module.exports = () => {
             response.status(404).send('Contato não encontrado');
         }
     };
+
+    controller.removeContato = (request, response) => {
+        var idContato = request.params.id;
+        console.log('remover contato', idContato);
+        contatos = contatos.filter((contato) => {
+            return contato._id != idContato;
+        });
+        response.status(204).end();
+    };
+
     return controller;
-}
+};

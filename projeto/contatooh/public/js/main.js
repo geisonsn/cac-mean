@@ -1,5 +1,5 @@
-angular.module("contatooh", ["ngRoute"])
-    .config(($routeProvider) => {
+angular.module("contatooh", ["ngRoute", "ngResource"])
+    .config(function($routeProvider) {
 
         $routeProvider
             .when('/contatos', {
@@ -10,5 +10,9 @@ angular.module("contatooh", ["ngRoute"])
                 templateUrl: 'partials/contato.html',
                 controller: 'ContatoController'
             })
+            .when('/contato', {
+                templateUrl: 'partials/contato.html',
+                controller: 'ContatoController'
+            })
             .otherwise({redirectTo: '/contatos'});
-})
+});
