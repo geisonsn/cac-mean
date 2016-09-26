@@ -1,6 +1,4 @@
-angular.module('contatooh').controller('ContatoController', function($scope, $routeParams, $resource, $http) {
-
-    var Contato = $resource('/contatos/:id');
+angular.module('contatooh').controller('ContatoController', function($scope, $routeParams, Contato) {
 
     function init() {
         if ($routeParams.contatoId) {
