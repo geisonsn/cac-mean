@@ -6,9 +6,33 @@ module.exports = () => {
     ];
     
     var controller = {};
+    var ID_CONTATO_INC = 3;
 
     controller.listaContatos = (request, response) => {
         response.json(contatos);
+    };
+
+    controller.salvaContato = (request, response) => {
+        var contato = request.body; 
+        var contato = contato._id ? atualiza(contato) : adiciona(contato);
+
+        response.json(contato); 
+
+        function adiciona(contatoNovo) {
+            contatoNovo._id = ++ID_CONTATO_INC;
+            contatos.push(contatoNovo);
+            return contatoNovo;
+        }
+
+        function atualiza(contatoAlterar) {
+            contatos = contatos.map((contato) => {
+                if (contato._id == contatoAlterar._id) {
+                    contato = contatoAlterar;
+                }
+                return contato;
+            })
+            return contatoAlterar;
+        }
     };
 
     controller.obtemContato = (request, response) => {
