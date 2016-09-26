@@ -1,0 +1,4 @@
+{"_id":{"$oid":"57e97d7c57ea53e2d4d22bb4"},"nome":"Contato 1 Mongo","email":"cont1@empresa.com.br"}
+{"_id":{"$oid":"57e97d9b57ea53e2d4d22bb5"},"nome":"Contato 2 Mongo","email":"cont2@empresa.com.br"}
+{"_id":{"$oid":"57e97da257ea53e2d4d22bb6"},"nome":"Contato 3 Mongo","email":"cont3@empresa.com.br"}
+{"_id":{"$oid":"57e982bd57ea53e2d4d22bb7"},"nome":"Contato com emails","emails":["contato@email.com.br","pessoal@empresa.com.br"]}
