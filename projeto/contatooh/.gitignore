@@ -1,4 +1,4 @@
 node_modules
 public/vendor
 database/*
-!database/contatos.backup.json
+!database/dump
