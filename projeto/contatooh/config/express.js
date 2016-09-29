@@ -17,7 +17,8 @@ module.exports = () => {
     app.use(require('method-override')());
 
     consign({cwd: 'app'})
-        .include('controllers')
+        .include('models')
+        .then('controllers')
         .then('routes')
         .into(app);
 
