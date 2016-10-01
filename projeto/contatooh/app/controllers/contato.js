@@ -4,7 +4,7 @@ module.exports = (app) => {
     var controller = {};
 
     controller.listaContatos = (request, response) => {
-        Contato.find().exec()
+        Contato.find().populate('emergencia').exec()
         .then(
             function(contatos) {
                 response.json(contatos);

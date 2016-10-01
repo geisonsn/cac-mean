@@ -1,6 +1,11 @@
 angular.module('contatooh').controller('ContatoController', function($scope, $routeParams, Contato) {
 
     function init() {
+
+        Contato.query(function(contatos) {
+            $scope.contatos = contatos;
+        });
+    
         if ($routeParams.contatoId) {
             Contato.get({id: $routeParams.contatoId},
                 function(contato) {
@@ -27,6 +32,6 @@ angular.module('contatooh').controller('ContatoController', function($scope, $ro
                 $scope.mensagem = {texto: 'Não foi possível salvar'};
             });
     };
-    
+
     init();
 });
