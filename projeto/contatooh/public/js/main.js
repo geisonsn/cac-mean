@@ -1,5 +1,7 @@
 angular.module("contatooh", ["ngRoute", "ngResource"])
-    .config(function($routeProvider) {
+    .config(function($routeProvider, $httpProvider) {
+
+        $httpProvider.interceptors.push('meuInterceptor');
 
         $routeProvider
             .when('/contatos', {
@@ -13,6 +15,9 @@ angular.module("contatooh", ["ngRoute", "ngResource"])
             .when('/contato', {
                 templateUrl: 'partials/contato.html',
                 controller: 'ContatoController'
+            })
+            .when('/auth', {
+                templateUrl: 'partials/auth.html'
             })
             .otherwise({redirectTo: '/contatos'});
 });
