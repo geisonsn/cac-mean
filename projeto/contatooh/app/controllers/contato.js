@@ -19,10 +19,17 @@ module.exports = (app) => {
     };
 
     controller.salvaContato = (request, response) => {
-        var contato = request.body; 
 
-        if (contato._id) {
-            Contato.findByIdAndUpdate(contato._id, contato).exec()
+        var _id = request.body._id;
+
+        var contato = {
+            nome: request.body.nome,
+            email: request.body.email,
+            emergencia: request.body.emergencia || null
+        }; 
+
+        if (_id) {
+            Contato.findByIdAndUpdate(_id, contato).exec()
                 .then(
                     function(contato) {
                         response.json(contato);
