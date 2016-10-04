@@ -42,5 +42,9 @@ module.exports = () => {
         .then('routes')
         .into(app);
 
+    app.get('*', (request, response) => {
+        response.status(404).render('404');
+    });
+
     return app;
 };
