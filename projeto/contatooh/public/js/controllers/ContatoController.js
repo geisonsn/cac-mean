@@ -22,13 +22,13 @@ angular.module('contatooh').controller('ContatoController', function($scope, $ro
         } 
     }
 
-    $scope.salva = () => {
+    $scope.salva = function() {
         $scope.contato.$save()
-            .then(() => {
+            .then(function() {
                 $scope.mensagem = {texto: 'Salvo com sucesso'};
                 $scope.contato = new Contato();
             })
-            .catch((erro) => {
+            .catch(function(erro) {
                 $scope.mensagem = {texto: 'Não foi possível salvar'};
             });
     };

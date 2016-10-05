@@ -6,8 +6,8 @@ var session = require('express-session');
 var passport = require('passport');
 var helmet = require('helmet');
 
-module.exports = () => {
-    const app = express();
+module.exports = function() {
+    var app = express();
 
     //configuração de ambiente
     app.set('port', 3000);
@@ -42,7 +42,7 @@ module.exports = () => {
         .then('routes')
         .into(app);
 
-    app.get('*', (request, response) => {
+    app.get('*', function(request, response) {
         response.status(404).render('404');
     });
 

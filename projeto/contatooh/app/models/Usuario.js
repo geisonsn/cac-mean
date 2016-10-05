@@ -1,7 +1,7 @@
 var mongoose = require('mongoose');
 var findOrCreate = require('mongoose-findorcreate');
 
-module.exports = () => {
+module.exports = function() {
 
     var schema = mongoose.Schema({
         login: {

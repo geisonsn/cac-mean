@@ -7,7 +7,7 @@ function verificaAutenticacao(request, response, next) {
     }
 }
 
-module.exports = (app) => {
+module.exports = function(app) {
     var controller = app.controllers.contato;
 
     app.route('/contatos')
