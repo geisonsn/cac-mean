@@ -5,9 +5,9 @@ exports.config = {
             .then(function() {
                 browser.driver.findElement(by.id('entrar')).click();
                 browser.driver.findElement(by.id('login_field'))
-                    .sendKeys('gitHubUser');
+                    .sendKeys('GitHubUser');
                 browser.driver.findElement(by.id('password'))
-                    .sendKeys('gitHubPassword');
+                    .sendKeys('GitHubPassword');
                 browser.driver.findElement(by.name('commit')).click();
         });
     }
