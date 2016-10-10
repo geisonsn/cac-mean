@@ -1,5 +1,7 @@
+.tmp
 node_modules
 public/vendor
 dist
+scripts
 database/*
 !database/dump
